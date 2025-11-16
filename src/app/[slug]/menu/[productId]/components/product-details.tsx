@@ -3,11 +3,14 @@
 import { Prisma } from "@prisma/client";
 import { ChefHatIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { formatCurrency } from "@/helpers/format-currency";
+
+import { CartContext } from "../../contexts/cart";
+import CartSheet from "./cart-sheet";
 
 interface ProductDetailsProps {
   product: Prisma.ProductGetPayload<{
@@ -23,6 +26,7 @@ interface ProductDetailsProps {
 }
 
 const ProductDetails = ({ product }: ProductDetailsProps) => {
+  const { toggleCart } = useContext(CartContext);
   const [quantity, setQuantity] = useState<number>(1);
   const handleDecreaseQuantity = () => {
     setQuantity((prev) => {
@@ -35,6 +39,10 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 
   const handleIncreaseQuantity = () => {
     setQuantity((prev) => prev + 1);
+  };
+
+  const handleAddToCart = () => {
+    toggleCart();
   };
 
   return (
@@ -57,7 +65,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           <h2 className="mt-1 text-xl font-semibold">{product.name}</h2>
 
           {/* PRICE AND QUANTITY */}
-          <div className="flex items-center justify-between mb-2 mt-2">
+          <div className="mb-2 mt-2 flex items-center justify-between">
             <h3 className="text-xl font-semibold">
               {formatCurrency(product.price)}
             </h3>
@@ -98,15 +106,17 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
               <ul className="list-disc px-5 text-sm text-muted-foreground">
                 {product.ingredients.map((ingredient) => (
                   <li key={ingredient}>{ingredient}</li>
-                  
                 ))}
               </ul>
             </div>
           </ScrollArea>
         </div>
 
-        <Button className="mt-1 w-full rounded-full">Adicionar à sacola</Button>
+        <Button className="mt-1 w-full rounded-full" onClick={handleAddToCart}>
+          Adicionar à sacola
+        </Button>
       </div>
+      <CartSheet />
     </>
   );
 };
