@@ -9,7 +9,7 @@ datasource db {
 
 model Restaurant {
   id             String         @id @default(uuid())
-  name           String         
+  name           String
   slug           String         @unique
   description    String
   avatarImageUrl String
@@ -55,6 +55,8 @@ model Order {
   restaurant        Restaurant        @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
   restaurantId      String
   orderProducts     OrderProduct[]
+  customerName      String
+  customerCpf       String
   createdAt         DateTime          @default(now())
   updateAt          DateTime          @updatedAt
 }
