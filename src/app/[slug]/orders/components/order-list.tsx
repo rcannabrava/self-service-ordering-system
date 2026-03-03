@@ -36,7 +36,7 @@ const getStatusLabel = (status: OrderStatus) => {
 
 const OrderList = ({ orders }: OrderListProps) => {
   return (
-    <div className="spce-y-6 p-6">
+    <div className="space-y-6 p-6">
       <Button size="icon" variant="secondary" className="rounded-full">
         <ChevronLeftIcon />
       </Button>
