@@ -34,6 +34,8 @@ const getStatusLabel = (status: OrderStatus) => {
   if (status == "FINISHED") return "Finalizado";
   if (status == "IN_PREPARATION") return "Em preparo";
   if (status == "PENDING") return "Pendente";
+  if (status == "PAYMENT_CONFIRMED") return "Pagamento confirmado";
+  if (status == "PAYMENT_FAILED") return "Falha no pagamento";
   return "";
 };
 
@@ -42,7 +44,12 @@ const OrderList = ({ orders }: OrderListProps) => {
   const handleBackClick = () => router.back();
   return (
     <div className="space-y-6 p-6">
-      <Button size="icon" variant="secondary" className="rounded-full" onClick={handleBackClick}>
+      <Button
+        size="icon"
+        variant="secondary"
+        className="rounded-full"
+        onClick={handleBackClick}
+      >
         <ChevronLeftIcon />
       </Button>
       <div className="item-center flex gap-3">
@@ -53,7 +60,7 @@ const OrderList = ({ orders }: OrderListProps) => {
         <Card key={order.id}>
           <CardContent className="space-y-4 p-5">
             <div
-              className={`w-fit rounded-full px-2 py-1 text-xs font-semibold text-white ${order.status == OrderStatus.FINISHED ? "bg-green-500 text-white" : "bg-gray-200 text-gray-500"} `}
+              className={`w-fit rounded-full px-2 py-1 text-xs font-semibold text-white ${([OrderStatus.PAYMENT_CONFIRMED, OrderStatus.FINISHED] as OrderStatus[]).includes(order.status) ? "bg-green-500 text-white" : "bg-gray-200 text-gray-500"} `}
             >
               {getStatusLabel(order.status)}
             </div>
