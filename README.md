@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Self-Service Ordering System
 
-## Getting Started
+This is a full-stack web application that simulates a **self-service ordering system for restaurants**, similar to the digital kiosks used in fast-food chains.
 
-First, run the development server:
+Users can browse products, add items to their cart, and complete the purchase through an online checkout.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The main goal of this project was to practice building a **realistic full-stack application**, including database modeling, API integration and an online payment flow.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Live Demo
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+https://self-service-system-sepia.vercel.app/mcdonalds
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Repository
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+https://github.com/rcannabrava/self-service-ordering-system
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Browse restaurant products
+- Add and remove items from the cart
+- Order management flow
+- Online payment using Stripe
+- Responsive interface
+- Component-based architecture
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Tech Stack
+
+Frontend  
+React  
+Next.js (App Router)  
+TypeScript  
+
+Backend  
+Next.js API Routes  
+
+Database  
+PostgreSQL  
+
+ORM  
+Prisma  
+
+Payments  
+Stripe API  
+
+Deployment  
+Vercel
+
+---
+
+## Project Structure
+
+The project uses the **Next.js App Router**, which allows a clean organization of routes and layouts.
+
+The interface was built using reusable **React components**, making the UI easier to maintain and extend.
+
+For the backend, the application uses **Prisma with PostgreSQL** to handle the database and manage product and order data.
+
+The payment flow is handled through **Stripe**, which creates a secure checkout session.
+
+---
+
+## What I Learned
+
+Working on this project helped me improve my experience with:
+
+- Building full-stack applications with Next.js
+- Integrating external APIs (Stripe)
+- Database modeling using Prisma and PostgreSQL
+- Structuring React applications with reusable components
+- Implementing a real-world checkout flow
+
+---
+
+## Possible Improvements
+
+Some ideas for future improvements:
+
+- User authentication
+- Admin dashboard for product management
+- Order history
+- Real-time order updates
+- Better mobile experience
+
+---
+
+## Author
+
+Rodrigo Cannabrava  
+
+GitHub:  
+https://github.com/rcannabrava
