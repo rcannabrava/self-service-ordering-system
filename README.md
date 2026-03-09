@@ -33,24 +33,24 @@ https://github.com/rcannabrava/self-service-ordering-system
 
 ## Tech Stack
 
-Frontend  
+### Frontend  
 React  
 Next.js (App Router)  
 TypeScript  
 
-Backend  
+### Backend  
 Next.js API Routes  
 
-Database  
+### Database  
 PostgreSQL  
 
-ORM  
+### ORM  
 Prisma  
 
-Payments  
+### Payments  
 Stripe API  
 
-Deployment  
+### Deployment  
 Vercel
 
 ---
